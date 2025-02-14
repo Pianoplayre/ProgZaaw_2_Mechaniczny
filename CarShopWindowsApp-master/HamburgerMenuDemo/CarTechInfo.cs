@@ -11,7 +11,7 @@ using System.ComponentModel.DataAnnotations;
 namespace HamburgerMenuDemo
 {
     [Table("CarTechInfo")]
-    class CarTechInfo
+    public class CarTechInfo
     {
        
         [Key]

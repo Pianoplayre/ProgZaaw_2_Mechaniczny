@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HamburgerMenuDemo
 {
-    class Contracts
+    public class Contracts
     {
         [Key]
         public int contractID { get; set; }

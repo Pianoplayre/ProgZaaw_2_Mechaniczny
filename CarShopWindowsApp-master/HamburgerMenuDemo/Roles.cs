@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HamburgerMenuDemo
 {
-    class Roles
+    public class Roles
     {
         [Key]
         public int roleID { get; set; }

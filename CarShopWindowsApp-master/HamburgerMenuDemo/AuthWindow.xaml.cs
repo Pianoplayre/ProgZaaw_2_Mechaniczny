@@ -48,9 +48,7 @@ namespace HamburgerMenuDemo
    
 
 
-    /// <summary>
-    /// Логика взаимодействия для AuthWindow.xaml
-    /// </summary>
+
     public partial class AuthWindow : Window
     {
        
@@ -131,7 +129,7 @@ namespace HamburgerMenuDemo
                         }
                         else
                         {
-                            //MessageBox.Show("Ви ввели правильний логін та пароль, однак на поточний момент система розроблена лише для адміністраторів. Особистий кабінет для вашої ролі буде створено в найближчому майбутньому", "Помилка");
+                            MessageBox.Show("Nieznany błąd. Sprobuj ponownie za chwilę");
                             k++;
                         }
 
@@ -140,7 +138,7 @@ namespace HamburgerMenuDemo
                     }
                 }
 
-                if (k == 0) { MessageBox.Show("Wrong auth info"); }
+                if (k == 0) { MessageBox.Show("Nieprawidłowe dane logowania"); }
 
             
             }

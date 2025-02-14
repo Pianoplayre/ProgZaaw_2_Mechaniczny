@@ -8,7 +8,7 @@ using System.Data.Entity;
 namespace HamburgerMenuDemo
 {
     
-        class UserContext : DbContext
+        public class UserContext : DbContext
         {
             public UserContext()
             : base( "DbConnection")

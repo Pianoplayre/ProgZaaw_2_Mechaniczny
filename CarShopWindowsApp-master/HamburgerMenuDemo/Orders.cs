@@ -11,7 +11,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HamburgerMenuDemo
 {
-    class Orders
+    public class Orders
     {
         [Key]
         public int orderID { get; set; }

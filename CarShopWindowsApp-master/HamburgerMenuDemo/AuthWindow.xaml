@@ -52,44 +52,16 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
-        <Image Source="C:\Users\Мария\source\repos\OOKP_GUI\carlogo.jfif" Grid.Column="1"></Image>
-
-        <TextBlock Height="40" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="24,27,18,0" Text="Please, log in:" TextAlignment="Center" FontFamily="Bauhaus 93" FontSize="26" Foreground="DimGray"/>
-        <TextBlock Text="login" FontFamily="Bauhaus 93" FontSize="13" Height="20" Width="40" Grid.Column="1" Grid.Row="1" Foreground="DimGray" VerticalAlignment="Top" Margin="-100 65 0 0"></TextBlock>
-        <TextBlock Text="password" FontFamily="Bauhaus 93" FontSize="13" Height="20" Width="120" Grid.Column="1" Grid.Row="1" Foreground="DimGray" Margin="-25 40 0 0"/>
-
-        <TextBox x:Name="usernameInput" Width="150"  Height="20" FontSize="14" Foreground="#BDB76B" BorderBrush="#247BA0" Background="#FFF7F1B2" Tag="" Grid.Column="1" Grid.Row="1" FontFamily="Bauhaus 93" ></TextBox>
-        <TextBox x:Name="passwordInput" Width="150"  Height="20" FontSize="14" Foreground="#BDB76B" BorderBrush="#247BA0" Background="#FFF7F1B2" Tag="" Grid.Column="1"  Grid.Row="1" Margin="0 100 0 0" FontFamily="Bauhaus 93" ></TextBox>
-        <TextBlock Visibility="Hidden" x:Name="usernameException" Width="135" Height="20" Text="* Mandatory field" FontFamily="Bauhaus 93" FontSize="10" Foreground="DarkRed" Grid.Column="1" Grid.Row="1" Margin="0 -25 0 0"></TextBlock>
-        <TextBlock Visibility="Hidden" x:Name="passwordException" Width="135" Height="20" Text="* Mandatory field" FontFamily="Bauhaus 93" FontSize="10" Foreground="DarkRed" Grid.Column="1" Grid.Row="1" Margin="0 75 0 0"></TextBlock>
-
-
-        <Button 
-            Style="{StaticResource RoundButtonTemplate}"
-            BorderBrush="Black"
-            Foreground="White"
-            FontFamily="Bauhaus 93"
-            Name="SignUpButton"
-            Content="Sign in"
-            Grid.Row="1"
-            Grid.Column="1"
-            VerticalAlignment="Bottom"
-            Width="100"
-            Height="25"
-            Background="Brown"
-            Margin="0 0 0 15" Click="SignUpButton_Click"
-            
-            />
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel>
+            <TextBlock Height="40" Text="Logowanie" TextAlignment="Center" FontFamily="Roboto" FontSize="26" Foreground="DimGray" Margin="0,0,0,20"/>
+            <TextBlock Text="login" FontFamily="Roboto" FontSize="13" Foreground="DimGray" Margin="0,0,0,5"/>
+            <TextBox x:Name="usernameInput" Width="150" Height="20" FontSize="14" Foreground="#BDB76B" BorderBrush="#247BA0" Background="#FFF7F1B2" FontFamily="Roboto" Margin="0,0,0,10"/>
+            <TextBlock Text="password" FontFamily="Roboto" FontSize="13" Foreground="DimGray" Margin="0,0,0,5"/>
+            <TextBox x:Name="passwordInput" Width="150" Height="20" FontSize="14" Foreground="#BDB76B" BorderBrush="#247BA0" Background="#FFF7F1B2" FontFamily="Roboto" Margin="0,0,0,10"/>
+            <TextBlock Visibility="Hidden" x:Name="usernameException" Width="135" Height="20" Text="* Mandatory field" FontFamily="Roboto" FontSize="10" Foreground="DarkRed" Margin="0,0,0,10"/>
+            <TextBlock Visibility="Hidden" x:Name="passwordException" Width="135" Height="20" Text="* Mandatory field" FontFamily="Roboto" FontSize="10" Foreground="DarkRed" Margin="0,0,0,20"/>
+            <Button Content="Zaloguj" Width="100" Height="25" Background="Brown" Foreground="White" FontFamily="Roboto" Click="SignUpButton_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

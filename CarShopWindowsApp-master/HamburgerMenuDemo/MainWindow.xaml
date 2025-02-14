@@ -9,31 +9,32 @@
         Loaded="SetUpDB"
     Top="0"
     Left="0"
-        Title="MainWindow" Height="450" Width="700" WindowStyle="None" AllowsTransparency="True" x:Name="this_">
+        Title="MainWindow" Height="600" Width="900" ResizeMode="CanResize" WindowStyle="SingleBorderWindow" x:Name="this_">
 
     <Grid Background="#FFE8D7AB">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="80*"/>
-            <ColumnDefinition Width="323*"/>
+            <ColumnDefinition Width="300*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="" Background="#FFE8D7AB" Panel.ZIndex="2" Margin="1,94,464,343" Grid.Column="1"/>
-        <HamburgerMenu:HamburgerMenu x:Name="MyHamb" Background="Brown" MenuIconColor="White" SelectionIndicatorColor="White" MenuItemForeground="White" HorizontalAlignment="Left"  >
+        <TextBlock Text="" Background="Transparent" Panel.ZIndex="2" Margin="1,94,464,343" Grid.Column="1"/>
+        <HamburgerMenu:HamburgerMenu x:Name="MyHamb" Background="CornflowerBlue" MenuIconColor="White" SelectionIndicatorColor="White" MenuItemForeground="White" HorizontalAlignment="Left" MaxWidth="150" >
             <HamburgerMenu:HamburgerMenu.Content>
-                <HamburgerMenu:HamburgerMenuItem x:Name="Tab1_Home" Tag="1" TabIndex="1" Icon="Assets/home.png" Text="Home" SelectionCommand="{Binding ElementName=this_}" ButtonBase.Click="Tab1_Home_Click" />
-                <HamburgerMenu:HamburgerMenuItem x:Name="Tab2_Search" Icon="Assets/search.png" Text="Search" ButtonBase.Click="Tab2_Search_Click"/>
-                <HamburgerMenu:HamburgerMenuItem x:Name="Tab3_heart" Icon="Assets/favorite.png" Text="Important" ButtonBase.Click="Tab3_heart_Click"/>
-                <HamburgerMenu:HamburgerMenuItem x:Name="Tab4_edit" Icon="Assets/list.png" ButtonBase.Click="Tab4_edit_Click" Text="Edit"/>
-                <HamburgerMenu:HamburgerMenuItem x:Name="Tab5_Profile" Icon="Assets/person.png" ButtonBase.Click="Tab5_Profile_Click" Text="Profile"/>
+                <HamburgerMenu:HamburgerMenuItem x:Name="Tab1_Home" Tag="1" TabIndex="1" Icon="Assets/home.png" Text="Dashboard" SelectionCommand="{Binding ElementName=this_}" ButtonBase.Click="Tab1_Home_Click" />
+                <HamburgerMenu:HamburgerMenuItem x:Name="Tab2_Search" Icon="Assets/search.png" Text="Wyszukaj" ButtonBase.Click="Tab2_Search_Click"/>
+                <HamburgerMenu:HamburgerMenuItem x:Name="Tab3_heart" Icon="Assets/favorite.png" Text="Ulubione" ButtonBase.Click="Tab3_heart_Click" Selected="Tab3_heart_Selected"/>
+                <HamburgerMenu:HamburgerMenuItem x:Name="Tab4_edit" Icon="Assets/list.png" ButtonBase.Click="Tab4_edit_Click" Text="Edytuj"/>
+                <HamburgerMenu:HamburgerMenuItem x:Name="Tab5_Profile" Icon="Assets/person.png" ButtonBase.Click="Tab5_Profile_Click" Text="Mój profil"/>
             </HamburgerMenu:HamburgerMenu.Content>
         </HamburgerMenu:HamburgerMenu>
         <TabControl BorderBrush="Transparent" Margin="140,100,0,0" Grid.ColumnSpan="2" x:Name="inner_tabs" Background="Transparent">
-            <TabItem BorderBrush="Transparent" x:Name="inner_tabs_1_home" TabIndex="1" Background="{x:Null}">
 
-                <Image Source="Assets/carshop.jpg" Stretch="Fill" Margin="0,4,0,0"></Image>
-                
-                
+            <TabItem BorderBrush="Transparent" x:Name="inner_tabs_1_home" TabIndex="1" Background="{x:Null}" Header="{x:Null}">
+
+                <Image Source="Assets/2cars.jpg" Stretch="Fill" Margin="100,40,10,10"></Image>
+
+
             </TabItem>
-            <TabItem BorderBrush="Transparent" x:Name="inner_tabs_2_search" TabIndex="2" Foreground="#FFF71111">
+            <TabItem BorderBrush="Transparent" x:Name="inner_tabs_2_search" TabIndex="2" Foreground="#FFF71111" Header="{x:Null}">
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="Transparent" Offset="0"/>
@@ -45,20 +46,22 @@
                         <ColumnDefinition Width="80*"/>
 
                     </Grid.ColumnDefinitions>
-                    <TextBlock x:Name="search_page_textb"  FontFamily="Britannic" FontSize="15" Foreground="Black" Width="226" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,10,0,0">Enter ID and type of item to find:</TextBlock>
-                    <ComboBox x:Name="search_page_combobox" Width="85" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 50 0 0">
-                        <ComboBoxItem Tag="1">Car</ComboBoxItem>
-                        <ComboBoxItem Tag="2">User</ComboBoxItem>
-                        <ComboBoxItem Tag="3">Order</ComboBoxItem>
-                        <ComboBoxItem Tag="4">Requirements</ComboBoxItem>
+                    <TextBlock x:Name="search_page_textb"  FontFamily="Roboto" FontSize="15" Foreground="Black" Width="226" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,10,0,0">Wybierz kategorię i wpisz nazwę:</TextBlock>
+                    <ComboBox x:Name="search_page_combobox" Width="100" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 50 0 0">
+                        <ComboBoxItem Tag="1">Samochody</ComboBoxItem>
+                        <ComboBoxItem Tag="2">Klienci</ComboBoxItem>
+                        <ComboBoxItem Tag="3">Zamówienia</ComboBoxItem>
+                        <ComboBoxItem Tag="4">Propozycje</ComboBoxItem>
                         <ComboBoxItem Tag="5">Role</ComboBoxItem>
 
                     </ComboBox>
-                    <TextBox x:Name="search_page_textbox" Width="200" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120 50 0 0" ></TextBox>
-                    <Button x:Name="But_find" Width="25" Height="25" VerticalAlignment="Top" Margin="130 50 0 0" Click="But_find_Click"></Button>
-                    <TextBlock x:Name="toOutpuSt" Width="450" Height="250" Text="" Margin="0 70 0 0" FontSize="15" FontFamily="Britannic" Foreground="Black"></TextBlock>
+                    <TextBox x:Name="search_page_textbox" Width="200" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150 50 0 0" ></TextBox>
+                    <Button x:Name="But_find" Width="25" Height="25" VerticalAlignment="Top" Margin="30 50 0 0" Click="But_find_Click">
+                        <Image Source="Assets/search.png" Stretch="Uniform"/>
+                    </Button>
+                    <TextBlock x:Name="toOutpuSt" Width="450" Height="250" Text="" Margin="0 70 0 0" FontSize="15" FontFamily="Roboto" Foreground="Black"></TextBlock>
 
-                    <DataGrid x:Name="databaseGrid_search"   Width="560" Height="160"  VerticalAlignment="Top"  HorizontalAlignment="Left" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=phones}" Grid.ColumnSpan="3" Margin="0,80,0,0">
+                    <DataGrid x:Name="databaseGrid_search"   Width="560" Height="360"  VerticalAlignment="Top"  HorizontalAlignment="Left" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=phones}" Grid.ColumnSpan="3" Margin="20,90,0,0">
                         <DataGrid.Columns>
 
                         </DataGrid.Columns>
@@ -70,7 +73,7 @@
 
                 </Grid>
             </TabItem>
-            <TabItem BorderBrush="Transparent" x:Name="inner_tabs_3_heart" TabIndex="3">
+            <TabItem BorderBrush="Transparent" x:Name="inner_tabs_3_heart" TabIndex="3" Header="{x:Null}">
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="Transparent" Offset="0"/>
@@ -79,7 +82,7 @@
                 </TabItem.Background>
 
                 <Grid>
-                    <TextBlock Text="Requirements " FontSize="16" Margin=" 0 0 0 0" x:Name="heart_header_text" FontFamily="Britannic"></TextBlock>
+                    <TextBlock Text="Propozycje klientów" FontSize="16" Margin=" 40 0 0 0" x:Name="heart_header_text" FontFamily="Roboto"></TextBlock>
                     <DataGrid x:Name="databaseGrid_heart" Width="560" Height="160"  VerticalAlignment="Top"  HorizontalAlignment="Left" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=phones}" Grid.ColumnSpan="3" Margin="0,20,0,0">
                         <DataGrid.Columns>
 
@@ -89,7 +92,7 @@
 
                         </DataGrid.Resources>
                     </DataGrid>
-                    <TextBlock Visibility="Hidden" x:Name="heart_footer_text" FontSize="16"  Margin="0 180 0 0" FontFamily="Britannic" >test</TextBlock>
+                    <TextBlock Visibility="Hidden" x:Name="heart_footer_text" FontSize="16"  Margin="0 180 0 0" FontFamily="Roboto" >test</TextBlock>
                     <DataGrid x:Name="databaseGrid_heart_bottom" Visibility="Hidden" Width="560" Height="130"  VerticalAlignment="Bottom"  HorizontalAlignment="Left" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=phones}" Grid.ColumnSpan="3" Margin="0,0,0,0">
                         <DataGrid.Columns>
 
@@ -104,7 +107,7 @@
                 </Grid>
 
             </TabItem>
-            <TabItem BorderBrush="Transparent" x:Name="inner_tabs_4_edit" TabIndex="4">
+            <TabItem BorderBrush="Transparent" x:Name="inner_tabs_4_edit" TabIndex="4" Header="{x:Null}">
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="Transparent" Offset="0"/>
@@ -116,8 +119,8 @@
 
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock x:Name="tab_order_textbox" Text="Choose the table of DB to change:" FontFamily="Unispace" Width="534" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,10,-6,0" Grid.Column="1"/>
-                    <DataGrid x:Name="databaseGrid" Width="560" Height="260"  VerticalAlignment="Bottom" HorizontalAlignment="Left" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=phones}" Grid.ColumnSpan="2" Margin="0,0,-6,0">
+                    <TextBlock x:Name="tab_order_textbox" Text="Wybierz typ danych, który chcesz edytować:" FontFamily="Roboto" Width="534" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40,10,0,0" Grid.Column="1"/>
+                    <DataGrid x:Name="databaseGrid" Width="560" Height="260"  VerticalAlignment="Bottom" HorizontalAlignment="Left" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=phones}" Grid.ColumnSpan="2" Margin="20,20,0,0">
                         <DataGrid.Columns>
 
                         </DataGrid.Columns>
@@ -136,7 +139,7 @@
             Grid.Column="1"
             VerticalAlignment="Top"
             Height="25"
-            Background="Brown"
+            Background="CornFlowerBlue"
             Margin="115,40,317,0" Click="SignUpButton_Click"
             
             />
@@ -152,7 +155,7 @@
             VerticalAlignment="Top"
                   Visibility="Hidden"
             Height="35"
-            Background="Brown"
+            Background="CornFlowerBlue"
             Margin="-10,110,417,0" 
             Click="CreateOrderButton_Click"
             />
@@ -169,7 +172,7 @@
             VerticalAlignment="Top"
                   Visibility="Hidden"
             Height="35"
-            Background="Brown"
+            Background="CornFlowerBlue"
             Margin="-10,230,417,0" 
             Click="CheckOrderStatusButton_Click"
             />
@@ -187,13 +190,13 @@
                     <TextBox x:Name="CarPlaces" Width="100" Height="20" Text="Car Places:" Margin="220 120 0 0" Visibility="Hidden"></TextBox>
                     <TextBox x:Name="CarBudget" Width="100" Height="20" Text="Car Budget:" Margin="220 180 0 0" Visibility="Hidden"></TextBox>
 
-                    <TextBlock x:Name="text1" Visibility="Hidden" FontFamily="Britannic" Margin="227,119,193,193" FontSize="12" TextWrapping="Wrap" TextAlignment="Center">Choose a customer, who is searching a car:</TextBlock>
+                    <TextBlock x:Name="text1" Visibility="Hidden" FontFamily="Roboto" Margin="227,119,193,193" FontSize="12" TextWrapping="Wrap" TextAlignment="Center">Choose a customer, who is searching a car:</TextBlock>
                     <ComboBox  Visibility="Hidden"  x:Name="tab4_combobox_choose_buyer" Height="20" Margin="252,159,212,159" SelectionChanged="tab4_combobox_choose_buyer_SelectionChanged" />
 
-                    <TextBlock  x:Name="text2" Visibility="Hidden" FontFamily="Britannic" Margin="397,129,74,184" Panel.ZIndex="1000" FontSize="12" TextWrapping="Wrap" TextAlignment="Center" Height="25"> Owner of auto:</TextBlock>
+                    <TextBlock  x:Name="text2" Visibility="Hidden" FontFamily="Roboto" Margin="397,129,74,184" Panel.ZIndex="1000" FontSize="12" TextWrapping="Wrap" TextAlignment="Center" Height="25"> Owner of auto:</TextBlock>
                     <TextBlock Visibility="Hidden"  x:Name="owner_of_auto" Height="25" Width="100" Margin="398,154,56,160"></TextBlock>
 
-                    <TextBlock  x:Name="text3" Visibility="Hidden" FontFamily="Britannic" Margin="398,179,73,134" Panel.ZIndex="1000" FontSize="12" TextWrapping="Wrap" TextAlignment="Center" Height="25">  Chosen auto:</TextBlock>
+                    <TextBlock  x:Name="text3" Visibility="Hidden" FontFamily="Roboto" Margin="398,179,73,134" Panel.ZIndex="1000" FontSize="12" TextWrapping="Wrap" TextAlignment="Center" Height="25">  Chosen auto:</TextBlock>
                     <TextBlock  Visibility="Hidden" x:Name="chosen_auto" Width="100" Margin="397,194,57,89"/>
 
                     <Button 
@@ -206,7 +209,7 @@
                         Visibility="Hidden"
             VerticalAlignment="Top"
             Height="25"
-            Background="Brown"
+            Background="CornflowerBlue"
             Margin="277,300,27,0" 
             Click="CreateOrderManager_Click"
                         
@@ -224,13 +227,13 @@
             FontFamily="Unispace"
                      
             Name="CreateOrderButton2"
-            Content="Create"
+            Content="Dodaj"
             Grid.Column="1"
             Width="120"
                         Visibility="Visible"
             VerticalAlignment="Top"
             Height="25"
-            Background="Brown"
+            Background="CornflowerBlue"
             Margin="120,300,0,0" 
             Click="CreateOrderButton2_Click"
             />
@@ -248,7 +251,7 @@
             Grid.Column="1"
             VerticalAlignment="Top"
             Height="25"
-            Background="Brown"
+            Background="CornFlowerBlue"
             Margin="220,40,212,0" Click="AddButton_Click" 
             
             />
@@ -263,7 +266,7 @@
             VerticalAlignment="Top"
                    Click="RemoveButton_Click"
             Height="25"
-            Background="Brown"
+            Background="CornFlowerBlue"
             Margin="325,40,107,0" 
             
             />
@@ -276,34 +279,34 @@
                         <Grid Width="500" Height="300"  Background="White">
 
                             <TextBlock Text="Data1" x:Name="Data1_text" Width="100" Height="20" Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 20 0 0"></TextBlock>
-                            <TextBox BorderBrush="Brown" x:Name="Data1_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 40 0 0"></TextBox>
+                            <TextBox BorderBrush="CornFlowerBlue" x:Name="Data1_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 40 0 0"></TextBox>
 
                             <TextBlock Text="Data2" x:Name="Data2_text" Width="100" Height="20" Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 80 0 0"></TextBlock>
-                            <TextBox BorderBrush="Brown" x:Name="Data2_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 100 0 0"></TextBox>
+                            <TextBox BorderBrush="CornFlowerBlue" x:Name="Data2_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 100 0 0"></TextBox>
 
                             <TextBlock Text="Data3" x:Name="Data3_text" Width="100" Height="20" Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 140 0 0"></TextBlock>
-                            <TextBox BorderBrush="Brown" x:Name="Data3_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 160 0 0"></TextBox>
+                            <TextBox BorderBrush="CornFlowerBlue" x:Name="Data3_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 160 0 0"></TextBox>
 
                             <TextBlock Text="Data4" x:Name="Data4_text" Width="100" Height="20" Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 200 0 0"></TextBlock>
-                            <TextBox BorderBrush="Brown" x:Name="Data4_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 220 0 0"></TextBox>
+                            <TextBox BorderBrush="CornFlowerBlue" x:Name="Data4_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 220 0 0"></TextBox>
 
                             <TextBlock Text="Data5" x:Name="Data5_text" Width="100" Height="20" Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 260 0 0"></TextBlock>
-                            <TextBox BorderBrush="Brown" x:Name="Data5_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 280 0 0"></TextBox>
+                            <TextBox BorderBrush="CornFlowerBlue" x:Name="Data5_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 280 0 0"></TextBox>
 
                             <TextBlock Text="Data6" x:Name="Data6_text" Width="100" Height="20" Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="250 20 0 0"></TextBlock>
-                            <TextBox BorderBrush="Brown" x:Name="Data6_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="250 40 0 0"></TextBox>
+                            <TextBox BorderBrush="CornFlowerBlue" x:Name="Data6_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="250 40 0 0"></TextBox>
 
                             <TextBlock Text="Data7" x:Name="Data7_text"  Width="100" Height="20" Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="250 80 0 0"></TextBlock>
-                            <TextBox BorderBrush="Brown" x:Name="Data7_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="250 100 0 0"></TextBox>
+                            <TextBox BorderBrush="CornFlowerBlue" x:Name="Data7_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="250 100 0 0"></TextBox>
 
                             <TextBlock Text="Data8" x:Name="Data8_text" Width="100" Height="20" Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="250 140 0 0"></TextBlock>
-                            <TextBox BorderBrush="Brown" x:Name="Data8_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="250 160 0 0"></TextBox>
+                            <TextBox BorderBrush="CornFlowerBlue" x:Name="Data8_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="250 160 0 0"></TextBox>
 
                             <TextBlock Text="Data9" x:Name="Data9_text" Width="100" Height="20" Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="250 200 0 0"></TextBlock>
-                            <TextBox BorderBrush="Brown" x:Name="Data9_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="250 220 0 0"></TextBox>
+                            <TextBox BorderBrush="CornFlowerBlue" x:Name="Data9_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="250 220 0 0"></TextBox>
 
                             <TextBlock Text="Data10" x:Name="Data10_text" Width="100" Height="20" Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="250 260 0 0"></TextBlock>
-                            <TextBox BorderBrush="Brown" x:Name="Data10_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="250 280 0 0"></TextBox>
+                            <TextBox BorderBrush="CornFlowerBlue" x:Name="Data10_input" BorderThickness="1" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="250 280 0 0"></TextBox>
 
                             <Button Margin="0 0 10 0" x:Name="Save_changes_popup_button" Width="125" Height="20" Content="Save changes" HorizontalAlignment="Right" Click="Save_changes_popup_button_Click" ></Button>
                             <Button Margin="0 0 10 0" x:Name="Add_changes_popup_button" Width="125" Height="20" Content="Add data" HorizontalAlignment="Right" Visibility="Hidden" Click="Add_changes_popup_button_Click" ></Button>
@@ -331,7 +334,7 @@
                     </ComboBox>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="inner_tabs_5_profile" TabIndex="5" BorderBrush="Transparent">
+            <TabItem x:Name="inner_tabs_5_profile" TabIndex="5" BorderBrush="Transparent" Header="{x:Null}">
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="Transparent" Offset="0"/>
@@ -349,36 +352,36 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock x:Name="forroles" FontFamily="Britannic" Width="100" Height="45" VerticalAlignment="Top" Grid.Column="0"  HorizontalAlignment="Left" Margin="20,10,0,0"> Your profile info:</TextBlock>
+                    <TextBlock x:Name="forroles" FontFamily="Roboto" FontSize="20" Width="200" Height="45" VerticalAlignment="Top" Grid.Column="0"  HorizontalAlignment="Left" Margin="20,10,0,0"> Twoje konto:</TextBlock>
 
-                    <TextBlock FontFamily="Britannic" Width="35" Height="20" VerticalAlignment="Top" Grid.Column="0"  HorizontalAlignment="Left" Margin="20 60 0 0"> Name:</TextBlock>
-                    <TextBlock x:Name="tab5_name_text" FontFamily="Britannic" Width="100" Height="20" VerticalAlignment="Top" Grid.Column="0"  HorizontalAlignment="Left" Margin="60 60 0 0"> a</TextBlock>
+                    <TextBlock FontFamily="Roboto" Width="100" Height="20" VerticalAlignment="Top" Grid.Column="0" HorizontalAlignment="Left" Margin="20 60 0 0" FontWeight="Bold">Imię i nazwisko:</TextBlock>
+                    <TextBlock x:Name="tab5_name_text" FontFamily="Roboto" Width="100" Height="20" VerticalAlignment="Top" Grid.Column="0"  HorizontalAlignment="Left" Margin="130 60 0 0"> a</TextBlock>
 
-                    <TextBlock Text="Email:" FontFamily="Britannic" Width="35" Height="20" VerticalAlignment="Top" Grid.Column="0"  HorizontalAlignment="Left" Margin="20 90 0 0"></TextBlock>
-                    <TextBlock x:Name="tab5_email_text" FontFamily="Britannic" Width="120" Height="20" VerticalAlignment="Top" Grid.Column="0"  HorizontalAlignment="Left" Margin="60 90 0 0"> a</TextBlock>
+                    <TextBlock Text="Email:" FontFamily="Roboto" Width="100" Height="20" VerticalAlignment="Top" Grid.Column="0"  HorizontalAlignment="Left" FontWeight="Bold" Margin="20 90 0 0"></TextBlock>
+                    <TextBlock x:Name="tab5_email_text" FontFamily="Roboto" Width="120" Height="20" VerticalAlignment="Top" Grid.Column="0"  HorizontalAlignment="Left" Margin="110 90 0 0"> a</TextBlock>
 
-                    <TextBlock  FontFamily="Britannic" Width="36" Height="20" VerticalAlignment="Top" Grid.Column="1"  HorizontalAlignment="Left" Margin="20 60 0 0">Phone:</TextBlock>
-                    <TextBlock x:Name="tab5_phone_text" FontFamily="Britannic" Width="120" Height="20" VerticalAlignment="Top" Grid.Column="1"  HorizontalAlignment="Left" Margin="65 60 0 0">a</TextBlock>
+                    <TextBlock  FontFamily="Roboto" Width="100" Height="20" VerticalAlignment="Top" Grid.Column="1"  HorizontalAlignment="Left" FontWeight="Bold" Margin="20 60 0 0">Numer telefonu:</TextBlock>
+                    <TextBlock x:Name="tab5_phone_text" FontFamily="Roboto" Width="120" Height="20" VerticalAlignment="Top" Grid.Column="1"  HorizontalAlignment="Left" Margin="120 60 0 0">a</TextBlock>
 
-                    <TextBlock FontFamily="Britannic" Width="36" Height="20" VerticalAlignment="Top" Grid.Column="1"  HorizontalAlignment="Left" Margin="20 90 0 0">Role:</TextBlock>
-                    <TextBlock x:Name="tab5_role_text" FontFamily="Britannic" Width="120" Height="20" VerticalAlignment="Top" Grid.Column="1"  HorizontalAlignment="Left" Margin="65 90 0 0">a</TextBlock>
+                    <TextBlock FontFamily="Roboto" Width="100" Height="20" VerticalAlignment="Top" Grid.Column="1"  HorizontalAlignment="Left" FontWeight="Bold" Margin="20 90 0 0">Typ konta:</TextBlock>
+                    <TextBlock x:Name="tab5_role_text" FontFamily="Roboto" Width="120" Height="20" VerticalAlignment="Top" Grid.Column="1"  HorizontalAlignment="Left" Margin="110 90 0 0">a</TextBlock>
 
-                    <TextBlock Grid.Column="2" FontFamily="Britannic" Width="36" Height="20" VerticalAlignment="Top"   HorizontalAlignment="Left" Margin="10 60 0 0">Login:</TextBlock>
-                    <TextBlock x:Name="tab5_login_text" FontFamily="Britannic" Width="77" Height="20" VerticalAlignment="Top" Grid.Column="2"  HorizontalAlignment="Left" Margin="50 60 0 0">*</TextBlock>
+                    <TextBlock Grid.Column="2" FontFamily="Roboto" Width="100" Height="20" VerticalAlignment="Top"   HorizontalAlignment="Left" FontWeight="Bold" Margin="10 60 0 0">Login:</TextBlock>
+                    <TextBlock x:Name="tab5_login_text" FontFamily="Roboto" Width="77" Height="20" VerticalAlignment="Top" Grid.Column="2"  HorizontalAlignment="Left" Margin="110 60 0 0">*</TextBlock>
 
-                    <TextBlock Grid.Column="2" FontFamily="Britannic" Width="55" Height="20" VerticalAlignment="Top"   HorizontalAlignment="Left" Margin="10 90 0 0">Password:</TextBlock>
-                    <TextBlock x:Name="tab5_password_text" FontFamily="Britannic" Width="57" Height="20" VerticalAlignment="Top" Grid.Column="2"  HorizontalAlignment="Left" Margin="70 90 0 0">*</TextBlock>
+                    <TextBlock Grid.Column="2" FontFamily="Roboto" Width="100" Height="20" VerticalAlignment="Top"   HorizontalAlignment="Left" FontWeight="Bold" Margin="10 90 0 0">Hasło:</TextBlock>
+                    <TextBlock x:Name="tab5_password_text" FontFamily="Roboto" Width="57" Height="20" VerticalAlignment="Top" Grid.Column="2"  HorizontalAlignment="Left" Margin="110 90 0 0">*</TextBlock>
 
-                    <Button Width="15" Height="15" Grid.Column="2" Margin="95 20 0 0" Click="Button_Click_2">
+                    <Button Width="20" Height="20" Grid.Column="2" Margin="-100 -180 0 0" Click="Button_Click_2">
                         <Image Source="Assets/new.png">
                         </Image>
                     </Button>
-                    <Button Width="15" Height="15" Grid.Column="2" Margin="95 80 0 0" Click="Button_Click_3">
+                    <Button Width="20" Height="20" Grid.Column="2" Margin="-100 -120 0 0" Click="Button_Click_3">
                         <Image Source="Assets/new.png">
                         </Image>
                     </Button>
-                    <TextBlock Visibility="Hidden" Width="170" Height="100" Grid.Column="0" Grid.Row="1" Background="#FFC1AFAF" TextAlignment="Center" >Место для аватарки</TextBlock>
-                    <TextBlock x:Name="profile_tab_statistics" Width="170" Height="100" Grid.Column="2" Grid.Row="1" Background="#FFC1AFAF" TextAlignment="Center" FontFamily="Britannic">Statictics:</TextBlock>
+                    <TextBlock Visibility="Hidden" Width="170" Height="100" Grid.Column="0" Grid.Row="1" Background="#FFC1AFAF" TextAlignment="Center" >Miejsce na awatar</TextBlock>
+                    <TextBlock x:Name="profile_tab_statistics" Width="250" Height="100" Grid.Column="2" Grid.Row="1" Background="#FFC1AFAF" TextAlignment="Center" FontFamily="Roboto" VerticalAlignment="Center" HorizontalAlignment="Center">Statystyki:</TextBlock>
 
                 </Grid>
 
@@ -387,9 +390,13 @@
         </TabControl>
 
 
-        <Image x:Name="UserImage" Width="100" Height="90" VerticalAlignment="Top"  HorizontalAlignment="Right" Grid.Column="1"  Source="Assets/admin.png"/>
-        <TextBlock Text="Howdy, " x:Name="HowdyTextBox" Width="100"  Height="50" FontFamily="Britannic" Grid.Column="1" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 30 70 0"></TextBlock>
-        <Button Width="50" Height="15" Content="Log out" FontSize="10" Grid.Column="1" VerticalAlignment="Top" BorderThickness="0" FontFamily="Britannic" BorderBrush="Red" Foreground="#4169E1" Background="Transparent" Margin="0 65 -260 0" Click="Button_Click_1"></Button>
+        <Image x:Name="UserImage" Width="90" Height="90" VerticalAlignment="Top"  HorizontalAlignment="Right" Grid.Column="1"  Margin="0,10,10,0" Source="Assets/aadmin.png"/>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,30,120,0">
+            <TextBlock Text="Witaj, " x:Name="HowdyTextBox" Width="120" Height="24" FontFamily="Roboto" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"></TextBlock>
+            <Button Width="80" Height="25" Content="Wyloguj" FontSize="16" FontFamily="Roboto" BorderBrush="CornflowerBlue"  Foreground="#4169E1" Background="Transparent" Click="Button_Click_1"></Button>
+
+        </StackPanel>
+
     </Grid>
 
 </Window>

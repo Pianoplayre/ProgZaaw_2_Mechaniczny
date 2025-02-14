@@ -34,7 +34,7 @@ namespace HamburgerMenuDemo
         {
             InitializeComponent();
           
-            HowdyTextBox.Text = "Howdy, \n" + CurrentUser.userName;
+            HowdyTextBox.Text = "Witaj, " + CurrentUser.userName;
             
             //chosenUser = receiveUser;
         }
@@ -427,7 +427,7 @@ namespace HamburgerMenuDemo
         {
             inner_tabs_5_profile.IsSelected = true;
             chosenItem = "5";
-            forroles.Text = "Your profile info:";
+            forroles.Text = "Dane Twojego konta:";
 
             tab5_role_text.Text = CurrentUser.userRoleId.ToString();
             tab5_phone_text.Text = CurrentUser.userPhone.ToString();
@@ -1740,18 +1740,30 @@ namespace HamburgerMenuDemo
 
         private void CreateOrderButton2_Click(object sender, RoutedEventArgs e)
         {
+            
 
             if (CurrentUser.userRoleId == 2)
             {
 
                 using (UserContext db = new UserContext())
                 {
-                    var RequirementToAdd = new Requirements { customerID = CurrentUser.userId, Budget = int.Parse(CarBudget.Text), carPlaces = int.Parse(CarPlaces.Text), carFuelTank = (CarFuelTank.Text), carEngine = CarEngine.Text, carGear = CarGearBox.Text, carPower = CarPowerBox.Text, carCategory = CarCategoryBox.Text, carModelID = CarModelComboBox.SelectedIndex + 1 };
+                    var RequirementToAdd = new Requirements 
+                    { 
+                        customerID = CurrentUser.userId, 
+                        Budget = int.Parse(CarBudget.Text), 
+                        carPlaces = int.Parse(CarPlaces.Text), 
+                        carFuelTank = (CarFuelTank.Text), 
+                        carEngine = CarEngine.Text, 
+                        carGear = CarGearBox.Text, 
+                        carPower = CarPowerBox.Text, 
+                        carCategory = CarCategoryBox.Text, 
+                        carModelID = CarModelComboBox.SelectedIndex + 1 
+                    };
                     db.RequirementsHere.Add(RequirementToAdd);
                     try
                     {
                         db.SaveChanges();
-                        MessageBox.Show("Data saved, order created! Stay in touch for updates");
+                        MessageBox.Show("Zapisano zmiany");
                         CarCategoryBox.Text = "";
                         CarModelComboBox.SelectedItem = null;
                         CarPowerBox.Text = "";
@@ -1771,7 +1783,7 @@ namespace HamburgerMenuDemo
             }
 
 
-            else if (CurrentUser.userRoleId == 3)
+            else if (CurrentUser.userRoleId == 1)
             {
                 using (UserContext db = new UserContext())
                 {
@@ -1891,10 +1903,15 @@ namespace HamburgerMenuDemo
                     }
                 }
                 db.SaveChanges();
-                MessageBox.Show("Order created, requirements removed!");
+                MessageBox.Show("Zamówienie złożone");
 
             }
 
+
+        }
+
+        private void Tab3_heart_Selected(object sender, RoutedEventArgs e)
+        {
 
         }
     }

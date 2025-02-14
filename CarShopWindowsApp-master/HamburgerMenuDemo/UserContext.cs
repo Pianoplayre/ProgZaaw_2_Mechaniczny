@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace HamburgerMenuDemo
 {
@@ -26,9 +27,13 @@ namespace HamburgerMenuDemo
 
             public DbSet<Contracts> ContractsHere { get; set; }
 
-
-
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
         }
+
+
+    }
 
     
 }

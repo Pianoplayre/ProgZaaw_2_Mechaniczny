@@ -62,8 +62,24 @@ namespace HamburgerMenuDemo
       
         public void SetUpDB(object sender, RoutedEventArgs e)
         {
-           
-            
+            using (var context = new UserContext())
+            {
+                if (!context.UsersHere.Any())
+                {
+                    var user = new Users
+                    {
+                        userRoleId = 1,
+                        userName = "Admin",
+                        userEmail = "admin@example.com",
+                        userPhone = "123456789",
+                        userLogin = "admin",
+                        userPassword = "admin123"
+                    };
+                    context.UsersHere.Add(user);
+                    context.SaveChanges();
+                }
+            }
+
 
         }
         
